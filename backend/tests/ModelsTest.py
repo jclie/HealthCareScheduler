@@ -7,7 +7,15 @@ from app.models import Nurse, Department, Shift
 
 # sample nurses
 nurses = [
-    Nurse(1, "Alice", {"ICU", "Emergency"}, 5),
+    Nurse(
+        1, "Alice", {"ICU", "Emergency"}, 5,
+        {
+            ("Monday", 0),
+            ("Tuesday", 1),
+            ("Wednesday", 1),
+            ("Thursday", 0)
+        }
+    ),
     Nurse(2, "Bob", {"General Medicine"}, 4),
     Nurse(3, "Charlie", {"ICU"}, 5),
     Nurse(4, "Diana", {"Emergency"}, 4),

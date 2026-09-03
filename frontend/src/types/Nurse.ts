@@ -10,4 +10,5 @@ export type Nurse = {
     name: string;
     department: string;
     maxShifts: number;
+    availability: [string, string]
 };

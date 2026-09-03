@@ -11,6 +11,7 @@ class Nurse:
     name: str
     departments: set[str]
     maxShifts: int
+    availability: set[tuple[str, str]]
     
 @dataclass
 class Department:
