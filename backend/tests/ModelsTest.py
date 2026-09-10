@@ -1,7 +1,7 @@
 """
 Programmer: Julie Tong
 Filename: ModelsTest.py
-Description: testing that the models work
+Description: Creates sample hospital data and verifies that the core Nurse, Department, and Shift models behave correctly
 """
 from app.models import Nurse, Department, Shift
 

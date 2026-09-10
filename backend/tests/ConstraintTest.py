@@ -1,11 +1,15 @@
 """
 Programmer: Julie Tong
 Filename: ConstraintTest.py
-Description: testing that the models work
+Description: Tests the scheduling constraints used to determine whether nurses are eligible for specific hospital shifts
 """
 from app.models import Nurse, Shift
 from app.constraints import isAvailable
 
+# --------------------------------------------------
+# Test Nurse
+# --------------------------------------------------
+# Alice is available Monday during the Day shift and Tuesday during the Night shift
 Alice = Nurse(
     id = 1,
     name = "Alice",
@@ -19,6 +23,9 @@ Alice = Nurse(
     }
 )
 
+# --------------------------------------------------
+# Test Shifts
+# --------------------------------------------------
 MondayDayShift = Shift(
     id = 1,
     department = "General Medicine",
@@ -35,6 +42,9 @@ MondayNightShift = Shift(
     nursesNeeded = 0
 )
 
+# --------------------------------------------------
+# Availability Constraint Tests
+# --------------------------------------------------
 assert isAvailable(Alice, MondayDayShift) == True
 assert isAvailable(Alice, MondayNightShift) == False
 
