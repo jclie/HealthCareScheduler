@@ -4,8 +4,7 @@ Filename: ConstraintTest.py
 Description: Tests the scheduling constraints used to determine whether nurses are eligible for specific hospital shifts
 """
 from app.models import Nurse, Shift, Department
-from app.constraints import isAvailable, validShiftAssignment, canWorkDepartment
-
+from app.constraints import isAvailable, validShiftAssignment, canWorkDepartment, validDepartmentAssignment
 # --------------------------------------------------
 # Test Nurse
 # --------------------------------------------------
@@ -65,5 +64,7 @@ assert validShiftAssignment(Alice, MondayDayShift) == True
 
 assert canWorkDepartment(Alice, ICU) == True
 assert canWorkDepartment(Alice, GeneralMedicine) == False
+
+assert validDepartmentAssignment(Alice, ICU) == True
 
 print("\nAll tests passed!")

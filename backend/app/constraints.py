@@ -18,3 +18,9 @@ def validShiftAssignment(nurse, shift):
 "Checks if a nurse can work in a specific department"
 def canWorkDepartment(nurse, department):
     return (department.name) in nurse.departments
+
+"Determines if a nurse is qualified for department"
+def validDepartmentAssignment(nurse, department):
+    if not canWorkDepartment(nurse, department):
+        return False
+    return True
