@@ -3,8 +3,8 @@ Programmer: Julie Tong
 Filename: ConstraintTest.py
 Description: Tests the scheduling constraints used to determine whether nurses are eligible for specific hospital shifts
 """
-from app.models import Nurse, Shift
-from app.constraints import isAvailable
+from app.models import Nurse, Shift, Department
+from app.constraints import isAvailable, validShiftAssignment, canWorkDepartment
 
 # --------------------------------------------------
 # Test Nurse
@@ -43,9 +43,27 @@ MondayNightShift = Shift(
 )
 
 # --------------------------------------------------
+# Test Department
+# --------------------------------------------------
+ICU = Department(
+    id = 0,
+    name = "ICU"
+)
+
+GeneralMedicine = Department(
+    id = 1,
+    name = "General Medicine"
+)
+
+# --------------------------------------------------
 # Availability Constraint Tests
 # --------------------------------------------------
 assert isAvailable(Alice, MondayDayShift) == True
 assert isAvailable(Alice, MondayNightShift) == False
+
+assert validShiftAssignment(Alice, MondayDayShift) == True
+
+assert canWorkDepartment(Alice, ICU) == True
+assert canWorkDepartment(Alice, GeneralMedicine) == False
 
 print("\nAll tests passed!")
